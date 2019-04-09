@@ -1,0 +1,1 @@
+include ':app', ':module_library', ':gson_module', ':module_user', ':module_home', ':module_square', ':module_login', ':module_message', ':IMKit', ':IMLib'

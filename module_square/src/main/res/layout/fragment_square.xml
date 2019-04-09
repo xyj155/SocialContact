@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_250">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_170"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/boy_small_m2_color2" />
+
+                <TextView
+                    android:id="@+id/iv_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_48"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:gravity="center"
+                    android:text="MOMO"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/dp_21"
+                    android:textStyle="bold" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_210"
+                    android:layout_below="@+id/iv_logo"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="@dimen/dp_150"
+                            android:layout_height="@dimen/dp_170">
+
+                            <ImageView
+                                android:id="@+id/iv_voice"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/img_home_entry_couple" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_above="@+id/tv_couple"
+                                android:layout_marginLeft="@dimen/dp_30"
+                                android:layout_marginBottom="@dimen/dp_3"
+                                android:text="即时匹配"
+                                android:textColor="#000"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_couple"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginLeft="@dimen/dp_30"
+                                android:layout_marginBottom="@dimen/dp_35"
+                                android:text="为你匹配心仪对象"
+                                android:textSize="11sp" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="@dimen/dp_150"
+                            android:layout_height="@dimen/dp_170"
+                            android:layout_marginLeft="-21dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/img_home_entry_circle" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_above="@+id/tv_street"
+                                android:layout_marginLeft="@dimen/dp_30"
+                                android:layout_marginBottom="@dimen/dp_3"
+                                android:text="街区"
+                                android:textColor="#000"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_street"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginLeft="@dimen/dp_30"
+                                android:layout_marginBottom="@dimen/dp_35"
+                                android:text="你是这条街最靓的崽"
+                                android:textSize="11sp" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="@dimen/dp_150"
+                            android:layout_height="@dimen/dp_170"
+                            android:layout_marginLeft="-21dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/img_home_entry_quiz" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_above="@+id/tv_quize"
+                                android:layout_marginLeft="@dimen/dp_30"
+                                android:layout_marginBottom="@dimen/dp_3"
+                                android:text="测一测"
+                                android:textColor="#000"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_quize"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginLeft="@dimen/dp_30"
+                                android:layout_marginBottom="@dimen/dp_35"
+                                android:text="桃花运试试看？"
+                                android:textSize="11sp" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="@dimen/dp_150"
+                            android:layout_height="@dimen/dp_170"
+                            android:layout_marginLeft="-21dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/img_home_entry_voice" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_above="@+id/tv_voice"
+                                android:layout_marginLeft="@dimen/dp_30"
+                                android:layout_marginBottom="@dimen/dp_3"
+                                android:text="声控"
+                                android:textColor="#000"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_voice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginLeft="@dimen/dp_30"
+                                android:layout_marginBottom="@dimen/dp_35"
+                                android:text="用声音为你匹配朋友"
+                                android:textSize="11sp" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </RelativeLayout>
+
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+        <net.lucode.hackware.magicindicator.MagicIndicator
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mg_square"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    </android.support.v4.view.ViewPager>
+
+</android.support.design.widget.CoordinatorLayout>
