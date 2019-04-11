@@ -1,9 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/splash_bg"
     android:layout_height="match_parent"
     tools:context=".SplashScreenActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_340"
+        android:scaleType="fitXY"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/splash_bottom" />
+
+    <ImageView
+        android:layout_width="247dp"
+        android:layout_height="138dp"
+        android:layout_marginTop="@dimen/dp_60"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:src="@mipmap/app_logo" />
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:textColor="#fff"
+        android:text="开启MOMO畅聊"
+        android:gravity="center"
+        android:layout_above="@+id/iv_start"/>
+    <ImageView
+        android:id="@+id/iv_start"
+        android:visibility="gone"
+        android:layout_width="@dimen/dp_150"
+        android:layout_centerInParent="true"
+        android:layout_height="@dimen/dp_150"
+        android:src="@mipmap/ic_start_uki"/>
+</RelativeLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    tools:context=".view.UserMatchActivity">
+
+    <include layout="@layout/common_toolbar" />
+<FrameLayout
+    android:layout_below="@+id/tb_common"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent">
+    <com.example.module_library.weight.flingswipe.SwipeFlingAdapterView
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:rotation_degrees="15.5" />
+
+    <include layout="@layout/buttons" />
+</FrameLayout>
+
+</RelativeLayout>

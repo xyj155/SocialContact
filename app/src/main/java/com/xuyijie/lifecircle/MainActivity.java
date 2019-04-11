@@ -19,7 +19,7 @@ import com.example.module_library.base.BaseActivity;
 import com.example.module_library.config.RouterConfig;
 import com.example.module_library.logic.contract.EmptyContract;
 import com.example.module_library.logic.presenter.EmptyPresenter;
-import com.example.module_library.util.SharePreferenceUtil;
+import com.example.module_library. util.SharePreferenceUtil;
 import com.example.module_library.weight.toast.ToastUtils;
 import com.xuyijie.home_module.view.HomeFragment;
 import com.xuyijie.location_module.view.SquareFragment;
@@ -28,7 +28,7 @@ import com.xuyijie.user_module.view.UserFragment;
 
 import java.util.HashMap;
 import java.util.Map;
-
+@Route(path = RouterConfig.MAIN)
 public class MainActivity extends BaseActivity<EmptyContract.View, EmptyPresenter> {
 
     private RadioButton rbHome;
@@ -58,10 +58,11 @@ public class MainActivity extends BaseActivity<EmptyContract.View, EmptyPresente
 //                    tvLocation.setText(amapLocation.getStreet());latitude",
 //"longitude"
                     Log.i(TAG, "onLocationChanged: getLatitude" + amapLocation.getLatitude());
-                    Log.i(TAG, "onLocationChanged: getLongitude" + amapLocation.getLongitude());
+                    Log.i(TAG, "onLocationChanged: getLongitude" + amapLocation.getCity());
                     Map<String, Object> map = new HashMap<>();
                     map.put("latitude",String.valueOf(amapLocation.getLatitude()));
                     map.put("longitude",String.valueOf(amapLocation.getLongitude()));
+                    map.put("city",String.valueOf(amapLocation.getCity()));
                     SharePreferenceUtil.saveUser(map);
                 } else {
 //                    tvLocation.setText("定位错误");

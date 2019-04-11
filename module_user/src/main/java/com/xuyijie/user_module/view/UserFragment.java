@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import com.example.module_library.base.BaseFragment;
 import com.example.module_library.logic.presenter.EmptyPresenter;
+import com.example.module_library.util.GlideUtil;
+import com.example.module_library.util.SharePreferenceUtil;
 import com.example.module_library.weight.CircleImageView;
 import com.xuyijie.user_module.R;
 import com.xuyijie.user_module.R2;
@@ -42,6 +44,11 @@ public class UserFragment extends BaseFragment<EmptyPresenter> {
     @BindView(R2.id.ry_post)
     RecyclerView ryPost;
     Unbinder unbinder;
+    @BindView(R2.id.iv_sex)
+    ImageView ivSex;
+    @BindView(R2.id.tv_sex)
+    TextView tvSex;
+    Unbinder unbinder1;
 
     @Override
     public void initData() {
@@ -50,6 +57,18 @@ public class UserFragment extends BaseFragment<EmptyPresenter> {
 
     @Override
     public void initView(View view) {
+        unbinder = ButterKnife.bind(this, view);
+        GlideUtil.loadRoundCornerImage(SharePreferenceUtil.getUser("avatar", "String"), ivAvatar);
+        tvUsername.setText((String) SharePreferenceUtil.getUser("username", "String"));
+        tvSignature.setText((String) SharePreferenceUtil.getUser("signature", "String"));
+        String user = (String) SharePreferenceUtil.getUser("sex", "String");
+        if (user.equals("1")) {
+            GlideUtil.loadRoundCornerImage(R.mipmap.ic_male_blue, ivSex);
+            tvSex.setText("男  ·  "+ SharePreferenceUtil.getUser("constellation", "String"));
+        }else {
+            GlideUtil.loadRoundCornerImage(R.mipmap.ic_female_pink, ivSex);
+            tvSex.setText("女  ·  "+ SharePreferenceUtil.getUser("constellation", "String"));
+        }
 
     }
 
@@ -67,7 +86,8 @@ public class UserFragment extends BaseFragment<EmptyPresenter> {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // TODO: inflate a fragment view
         View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        unbinder = ButterKnife.bind(this, rootView);
+
+        unbinder1 = ButterKnife.bind(this, rootView);
         return rootView;
     }
 

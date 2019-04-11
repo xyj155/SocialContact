@@ -44,4 +44,31 @@ public class HomePageFragmentPresenter extends BasePresenter<HomePageFragmentCon
                     }
                 });
     }
+
+    @Override
+    public void queryHotUserByLocation(String page) {
+        mMvpView.showDialog();
+        homePageFragmentModel.queryHotUserByLocation(page)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new BaseObserver<BaseGson<UserGson>>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onNext(BaseGson<UserGson> userGsonBaseGson) {
+                        mMvpView.hideDialog();
+                        if (userGsonBaseGson.isStatus()) {
+                            mMvpView.queryHotUserByLocation(userGsonBaseGson.getData());
+                        }
+                    }
+
+                    @Override
+                    public void onError(String error) {
+                        mMvpView.hideDialog();
+                    }
+                });
+    }
 }

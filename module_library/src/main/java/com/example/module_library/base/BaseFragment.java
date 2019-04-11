@@ -33,7 +33,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment {
     }
 
 
-    public BaseFragment createDialog() {
+    public BaseFragment mshowDialog() {
         progressDialog = new Dialog(getContext(), R.style.progress_dialog);
         progressDialog.setContentView(R.layout.base_dialog);
         progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
@@ -46,7 +46,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment {
         return this;
     }
 
-    public void dialogCancel() {
+    public void mhideDialog() {
         if (progressDialog != null)
             progressDialog.dismiss();
     }

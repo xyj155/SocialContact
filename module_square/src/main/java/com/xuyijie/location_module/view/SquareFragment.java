@@ -1,18 +1,28 @@
 package com.xuyijie.location_module.view;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.RequiresApi;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.text.TextPaint;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
 import com.example.module_library.adapter.HomePagerAdapter;
@@ -43,30 +53,33 @@ import butterknife.Unbinder;
 
 
 //@Route(path = RouterConfig.HOMEPAGE)
-public class SquareFragment extends BaseFragment<EmptyPresenter> implements StickScrollView.OnScrollListener {
+public class SquareFragment extends BaseFragment<EmptyPresenter> implements View.OnTouchListener, StickScrollView.OnScrollListener, View.OnClickListener {
     @BindView(R2.id.mg_square)
     MagicIndicator mgSquare;
     @BindView(R2.id.viewpager)
     ViewPager viewpager;
     Unbinder unbinder;
+    @BindView(R2.id.rl_couple)
+    RelativeLayout rlCouple;
+    @BindView(R2.id.rl_circle)
+    RelativeLayout rlCircle;
+    @BindView(R2.id.rl_quiz)
+    RelativeLayout rlQuiz;
+    @BindView(R2.id.rl_voice)
+    RelativeLayout rlVoice;
+    Unbinder unbinder1;
     private List<Fragment> fragmentList = new ArrayList<>();
-    private String[] title = {"推荐", "附件动态"};
-    private LinearLayout mTopTabViewLayout;
-    /**
-     * 跟随ScrollView的TabviewLayout
-     */
-    private LinearLayout mTabViewLayout;
+    private String[] title = {"推荐", "附件动态", "关注"};
 
-    /**
-     * 要悬浮在顶部的View的子View
-     */
-    private LinearLayout mTopView;
-
+    private CoordinatorLayout cdSquare;
+    private AppBarLayout alSquare;
+    private SimplePagerTitleView simplePagerTitleView;
 
     @Override
     public void initData() {
         fragmentList.add(new PursePostFragment());
         fragmentList.add(new SameCityFragment());
+        fragmentList.add(new ObservePostFragment());
         homePagerAdapter = new HomePagerAdapter(getChildFragmentManager(), fragmentList);
         viewpager.setAdapter(homePagerAdapter);
         mgSquare.setBackgroundColor(Color.parseColor("#ffffff"));
@@ -81,11 +94,11 @@ public class SquareFragment extends BaseFragment<EmptyPresenter> implements Stic
 
             @Override
             public IPagerTitleView getTitleView(Context context, final int index) {
-                SimplePagerTitleView simplePagerTitleView = new ColorFlipPagerTitleView(context);
+                simplePagerTitleView = new ColorFlipPagerTitleView(context);
                 simplePagerTitleView.setText(title[index]);
                 TextPaint tp = simplePagerTitleView.getPaint();
                 tp.setFakeBoldText(true);
-                simplePagerTitleView.setTextSize(17);
+                simplePagerTitleView.setTextSize(22);
                 simplePagerTitleView.setNormalColor(Color.parseColor("#8a8a8a"));
                 simplePagerTitleView.setSelectedColor(Color.parseColor("#000000"));
                 simplePagerTitleView.setOnClickListener(new View.OnClickListener() {
@@ -112,6 +125,8 @@ public class SquareFragment extends BaseFragment<EmptyPresenter> implements Stic
         });
         mgSquare.setNavigator(commonNavigator7);
         ViewPagerHelper.bind(mgSquare, viewpager);
+        viewpager.setOffscreenPageLimit(3);
+
 //        mzSquare.setDelayedTime(5000);
 //        List<String> stringList = new ArrayList<>();
 //        stringList.add("https://img.zcool.cn/community/019c745ca5c33ca8012141686fc0ca.jpg@1280w_1l_2o_100sh.jpg");
@@ -126,14 +141,78 @@ public class SquareFragment extends BaseFragment<EmptyPresenter> implements Stic
 //            }
 //        });
 //        mzSquare.start();
-
+        rlCouple.setOnClickListener(this);
+        rlCircle.setOnClickListener(this);
+        rlQuiz.setOnClickListener(this);
+        rlVoice.setOnClickListener(this);
+//        rlCouple.setOnTouchListener(this);
+//        rlCircle.setOnTouchListener(this);
+//        rlQuiz.setOnTouchListener(this);
+//        rlVoice.setOnTouchListener(this);
     }
+    @Override
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        switch (motionEvent.getAction()) {
+
+            case MotionEvent.ACTION_DOWN:
+                int id1 = view.getId();
+                if ( id1==  R.id.rl_couple) {
+                    rlCouple.setScaleX((float) 0.85);
+                    rlCouple.setScaleY((float) 0.85);
+                }else if (id1==R.id.rl_circle){
+                    rlCircle.setScaleX((float) 0.85);
+                    rlCircle.setScaleY((float) 0.85);
+                }else if (id1==R.id.rl_quiz){
+                    rlQuiz.setScaleX((float) 0.85);
+                    rlQuiz.setScaleY((float) 0.85);
+                }else if (id1==R.id.rl_voice){
+                    rlVoice.setScaleX((float) 0.85);
+                    rlVoice.setScaleY((float) 0.85);
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                int id = view.getId();
+                if (id == R.id.rl_couple) {
+                    rlCouple.setScaleX(1);
+                    rlCouple.setScaleY(1);
+                }else if (id==R.id.rl_circle){
+                    rlCircle.setScaleX(1);
+                    rlCircle.setScaleY(1);
+                }else if (id==R.id.rl_quiz){
+                    rlQuiz.setScaleX(1);
+                    rlQuiz.setScaleY(1);
+                }else if (id==R.id.rl_voice){
+                    rlVoice.setScaleX(1);
+                    rlVoice.setScaleY(1);
+                }
+                break;
+        }
+        return false;
+    }
+    private void viewUp(final View v, final Class c){
+        v.setScaleX((float) 0.85);
+        v.setScaleY((float) 0.85);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                v.setScaleX(1);
+                v.setScaleY(1);
+                startActivity(new Intent(getContext(),c));
+            }
+        },100);
+    }
+
+
+
+
     private HomePagerAdapter homePagerAdapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // TODO: inflate a fragment view
         View rootView = super.onCreateView(inflater, container, savedInstanceState);
 
+        unbinder1 = ButterKnife.bind(this, rootView);
         return rootView;
     }
 
@@ -141,6 +220,28 @@ public class SquareFragment extends BaseFragment<EmptyPresenter> implements Stic
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id1 = v.getId();
+        if ( id1==  R.id.rl_couple) {
+//            rlCouple.setScaleX((float) 0.85);
+//            rlCouple.setScaleY((float) 0.85);
+            viewUp(rlCouple,UserMatchActivity.class);
+        }else if (id1==R.id.rl_circle){
+//            rlCircle.setScaleX((float) 0.85);
+            viewUp(rlCircle,UserMatchActivity.class);
+//            rlCircle.setScaleY((float) 0.85);
+        }else if (id1==R.id.rl_quiz){
+//            rlQuiz.setScaleX((float) 0.85);
+            viewUp(rlQuiz,UserMatchActivity.class);
+//            rlQuiz.setScaleY((float) 0.85);
+        }else if (id1==R.id.rl_voice){
+            viewUp(rlVoice,UserMatchActivity.class);
+//            rlVoice.setScaleX((float) 0.85);
+//            rlVoice.setScaleY((float) 0.85);
+        }
     }
 
     private class MZBannerHolder implements MZViewHolder<String> {
@@ -159,9 +260,13 @@ public class SquareFragment extends BaseFragment<EmptyPresenter> implements Stic
         }
     }
 
+    private static final String TAG = "SquareFragment";
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void initView(View view) {
+        cdSquare = view.findViewById(R.id.cd_square);
+        alSquare = view.findViewById(R.id.al_square);
         unbinder = ButterKnife.bind(this, view);
 //        StickScrollView mMyScrollView = (StickScrollView) view.findViewById(R.id.my_scrollview);
 //        mTabViewLayout = (LinearLayout) view.findViewById(R.id.ll_tabView);

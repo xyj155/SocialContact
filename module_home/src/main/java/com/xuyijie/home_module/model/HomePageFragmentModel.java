@@ -12,4 +12,9 @@ public class HomePageFragmentModel implements HomePageFragmentContract.Model {
     public Observable<BaseGson<UserGson>> queryAroundUserByLocation(String city,String page) {
         return RetrofitUtils.getInstance().create().queryAroundUserByLocation(city,page);
     }
+
+    @Override
+    public Observable<BaseGson<UserGson>> queryHotUserByLocation(String page) {
+        return RetrofitUtils.getInstance().create().queryHotUserByLocation(page);
+    }
 }

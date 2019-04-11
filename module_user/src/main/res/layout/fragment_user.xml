@@ -85,6 +85,7 @@
 
                     <ImageView
                         android:layout_width="@dimen/dp_12"
+                        android:id="@+id/iv_sex"
                         android:layout_height="@dimen/dp_12"
                         android:src="@mipmap/ic_male_blue" />
 
@@ -93,7 +94,8 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="@dimen/dp_8"
                         android:text="男  ·  天蝎座"
-                        android:textColor="#dddddd" />
+                        android:id="@+id/tv_sex"
+                        android:textColor="#ffffff" />
                 </LinearLayout>
             </LinearLayout>
         </RelativeLayout>

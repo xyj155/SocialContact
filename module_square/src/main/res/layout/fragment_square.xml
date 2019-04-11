@@ -1,205 +1,234 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/behavior_sample_title"
     android:layout_height="match_parent">
 
-    <android.support.design.widget.AppBarLayout
+    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cd_square"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/collapsing_toolbar"
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/al_square"
+            app:elevation="@dimen/dp_0"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_170"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/boy_small_m2_color2" />
+
+                    <TextView
+                        android:id="@+id/iv_logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp_48"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="@dimen/dp_20"
+                        android:gravity="center"
+                        android:text="MOMO"
+                        android:textColor="#fff"
+                        android:textSize="@dimen/dp_21"
+                        android:textStyle="bold" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/iv_logo"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:id="@+id/rl_couple"
+                                android:layout_width="@dimen/dp_150"
+                                android:layout_height="@dimen/dp_170">
+
+                                <ImageView
+                                    android:id="@+id/iv_voice"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/img_home_entry_couple" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_above="@+id/tv_couple"
+                                    android:layout_marginLeft="@dimen/dp_30"
+                                    android:layout_marginBottom="@dimen/dp_3"
+                                    android:text="即时匹配"
+                                    android:textColor="#000"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tv_couple"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginLeft="@dimen/dp_30"
+                                    android:layout_marginBottom="@dimen/dp_35"
+                                    android:text="为你匹配心仪对象"
+                                    android:textSize="11sp" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="@dimen/dp_150"
+                                android:layout_height="@dimen/dp_170"
+                                android:id="@+id/rl_circle"
+                                android:layout_marginLeft="-21dp">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/img_home_entry_circle" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_above="@+id/tv_street"
+                                    android:layout_marginLeft="@dimen/dp_30"
+                                    android:layout_marginBottom="@dimen/dp_3"
+                                    android:text="街区"
+                                    android:textColor="#000"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tv_street"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginLeft="@dimen/dp_30"
+                                    android:layout_marginBottom="@dimen/dp_35"
+                                    android:text="你是这条街最靓的崽"
+                                    android:textSize="11sp" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="@dimen/dp_150"
+                                android:layout_height="@dimen/dp_170"
+                                android:id="@+id/rl_quiz"
+                                android:layout_marginLeft="-21dp">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/img_home_entry_quiz" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_above="@+id/tv_quize"
+                                    android:layout_marginLeft="@dimen/dp_30"
+                                    android:layout_marginBottom="@dimen/dp_3"
+                                    android:text="测一测"
+                                    android:textColor="#000"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tv_quize"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginLeft="@dimen/dp_30"
+                                    android:layout_marginBottom="@dimen/dp_35"
+                                    android:text="桃花运试试看？"
+                                    android:textSize="11sp" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/rl_voice"
+                                android:layout_width="@dimen/dp_150"
+                                android:layout_height="@dimen/dp_170"
+                                android:layout_marginLeft="-21dp">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/img_home_entry_voice" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_above="@+id/tv_voice"
+                                    android:layout_marginLeft="@dimen/dp_30"
+                                    android:layout_marginBottom="@dimen/dp_3"
+                                    android:text="声控"
+                                    android:textColor="#000"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tv_voice"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginLeft="@dimen/dp_30"
+                                    android:layout_marginBottom="@dimen/dp_35"
+                                    android:text="用声音为你匹配朋友"
+                                    android:textSize="11sp" />
+                            </RelativeLayout>
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
+                </RelativeLayout>
+
+
+            </android.support.design.widget.CollapsingToolbarLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_250">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp_170"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/boy_small_m2_color2" />
+                android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/iv_logo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/dp_48"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerInParent="true"
-                    android:layout_marginTop="@dimen/dp_20"
-                    android:gravity="center"
-                    android:text="MOMO"
-                    android:textColor="#fff"
-                    android:textSize="@dimen/dp_21"
-                    android:textStyle="bold" />
-
-                <HorizontalScrollView
+                    android:visibility="gone"
+                    android:id="@+id/tv_topic"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp_210"
-                    android:layout_below="@+id/iv_logo"
-                    android:scrollbars="none">
+                    android:layout_height="@dimen/dp_28"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:text="热门话题：    #测试     #测试     #测试"
+                    android:textSize="16sp" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RelativeLayout
-                            android:layout_width="@dimen/dp_150"
-                            android:layout_height="@dimen/dp_170">
-
-                            <ImageView
-                                android:id="@+id/iv_voice"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:src="@drawable/img_home_entry_couple" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_above="@+id/tv_couple"
-                                android:layout_marginLeft="@dimen/dp_30"
-                                android:layout_marginBottom="@dimen/dp_3"
-                                android:text="即时匹配"
-                                android:textColor="#000"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/tv_couple"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentBottom="true"
-                                android:layout_marginLeft="@dimen/dp_30"
-                                android:layout_marginBottom="@dimen/dp_35"
-                                android:text="为你匹配心仪对象"
-                                android:textSize="11sp" />
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:layout_width="@dimen/dp_150"
-                            android:layout_height="@dimen/dp_170"
-                            android:layout_marginLeft="-21dp">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:scaleType="fitXY"
-                                android:src="@drawable/img_home_entry_circle" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_above="@+id/tv_street"
-                                android:layout_marginLeft="@dimen/dp_30"
-                                android:layout_marginBottom="@dimen/dp_3"
-                                android:text="街区"
-                                android:textColor="#000"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/tv_street"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentBottom="true"
-                                android:layout_marginLeft="@dimen/dp_30"
-                                android:layout_marginBottom="@dimen/dp_35"
-                                android:text="你是这条街最靓的崽"
-                                android:textSize="11sp" />
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:layout_width="@dimen/dp_150"
-                            android:layout_height="@dimen/dp_170"
-                            android:layout_marginLeft="-21dp">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:scaleType="fitXY"
-                                android:src="@drawable/img_home_entry_quiz" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_above="@+id/tv_quize"
-                                android:layout_marginLeft="@dimen/dp_30"
-                                android:layout_marginBottom="@dimen/dp_3"
-                                android:text="测一测"
-                                android:textColor="#000"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/tv_quize"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentBottom="true"
-                                android:layout_marginLeft="@dimen/dp_30"
-                                android:layout_marginBottom="@dimen/dp_35"
-                                android:text="桃花运试试看？"
-                                android:textSize="11sp" />
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:layout_width="@dimen/dp_150"
-                            android:layout_height="@dimen/dp_170"
-                            android:layout_marginLeft="-21dp">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:scaleType="fitXY"
-                                android:src="@drawable/img_home_entry_voice" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_above="@+id/tv_voice"
-                                android:layout_marginLeft="@dimen/dp_30"
-                                android:layout_marginBottom="@dimen/dp_3"
-                                android:text="声控"
-                                android:textColor="#000"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/tv_voice"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentBottom="true"
-                                android:layout_marginLeft="@dimen/dp_30"
-                                android:layout_marginBottom="@dimen/dp_35"
-                                android:text="用声音为你匹配朋友"
-                                android:textSize="11sp" />
-                        </RelativeLayout>
-                    </LinearLayout>
-                </HorizontalScrollView>
+                <net.lucode.hackware.magicindicator.MagicIndicator
+                    android:id="@+id/mg_square"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_48"
+                    android:layout_marginTop="@dimen/dp_20"
+                    app:layout_collapseMode="pin"
+                    app:layout_scrollFlags="scroll|enterAlways|snap"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
             </RelativeLayout>
 
+        </android.support.design.widget.AppBarLayout>
 
-        </android.support.design.widget.CollapsingToolbarLayout>
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+    </android.support.design.widget.CoordinatorLayout>
 
-        <net.lucode.hackware.magicindicator.MagicIndicator
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/mg_square"
-            app:layout_collapseMode="pin"
-            app:layout_scrollFlags="scroll|enterAlways|snap"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-    </android.support.design.widget.AppBarLayout>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-    </android.support.v4.view.ViewPager>
-
-</android.support.design.widget.CoordinatorLayout>
+</RelativeLayout>

@@ -2,29 +2,20 @@ package com.xuyijie.home_module.view;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.TextPaint;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.TextView;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.module_library.adapter.HomePagerAdapter;
 import com.example.module_library.base.BaseFragment;
-import com.example.module_library.config.RouterConfig;
 import com.example.module_library.logic.presenter.EmptyPresenter;
+import com.example.module_library.util.SharePreferenceUtil;
 import com.example.module_library.weight.ColorFlipPagerTitleView;
-import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.xuyijie.home_module.R;
-import com.xuyijie.home_module.R2;
 
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
@@ -40,7 +31,6 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.Simple
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -50,7 +40,7 @@ public class HomeFragment extends BaseFragment<EmptyPresenter> {
     ViewPager vpHome;
     Unbinder unbinder;
     private List<Fragment> fragmentList = new ArrayList<>();
-    private String[] title = {"附近的人", "同城交友"};
+    private String[] title = { "推荐陌友","附近的人"};
 
 
 
@@ -58,8 +48,9 @@ public class HomeFragment extends BaseFragment<EmptyPresenter> {
 
     @Override
     public void initData() {
+        fragmentList.add(new PurseUserFragment());
         fragmentList.add(new LocationFragment());
-        fragmentList.add(new SameCityFragment());
+
         homePagerAdapter = new HomePagerAdapter(getChildFragmentManager(), fragmentList);
         vpHome.setAdapter(homePagerAdapter);
         mgHome.setBackgroundColor(Color.parseColor("#ffffff"));
@@ -112,6 +103,8 @@ public class HomeFragment extends BaseFragment<EmptyPresenter> {
         mgHome = view.findViewById(R.id.mg_home);
         vpHome = view.findViewById(R.id.vp_home);
         unbinder = ButterKnife.bind(this, view);
+        TextView viewById = view.findViewById(R.id.tv_location);
+        viewById.setText((String) SharePreferenceUtil.getUser("city", "String"));
     }
 
     @Override

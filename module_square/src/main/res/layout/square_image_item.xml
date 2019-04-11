@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.module_library.weight.XCRoundRectImageView xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/iv_picture"
+    android:layout_margin="@dimen/dp_2"
+    android:scaleType="centerCrop"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_100"
+    tools:ignore="MissingDefaultResource">
+
+</com.example.module_library.weight.XCRoundRectImageView>

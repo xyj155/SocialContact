@@ -48,6 +48,16 @@ private String  latitude;
 
     private String sex
             ;
+    private String hot;
+
+    public String getHot() {
+        return hot;
+    }
+
+    public void setHot(String hot) {
+        this.hot = hot;
+    }
+
     private String password;
     private String mobileNum;
     private String constellation;

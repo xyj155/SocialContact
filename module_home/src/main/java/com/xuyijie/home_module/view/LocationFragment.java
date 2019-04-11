@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.module_library.base.BaseFragment;
+import com.example.module_library.util.SharePreferenceUtil;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
@@ -44,6 +45,7 @@ public class LocationFragment extends BaseFragment<HomePageFragmentPresenter> im
     @Override
     public void initView(View view) {
         unbinder = ButterKnife.bind(this, view);
+
         ryLocation.hasFixedSize();
         ryLocation.setLayoutManager(new LinearLayoutManager(getContext()));
         locationAdapter = new LocationAdapter(null);
@@ -52,17 +54,18 @@ public class LocationFragment extends BaseFragment<HomePageFragmentPresenter> im
             @Override
             public void onRefresh(RefreshLayout refreshLayout) {
                 page = 1;
+                isFirst = true;
                 userGsonLists.clear();
                 ryLocation.removeAllViews();
                 locationAdapter.notifyDataSetChanged();
-                mPresenter.queryAroundUserByLocation("嘉兴", String.valueOf(page));
+                mPresenter.queryAroundUserByLocation(String.valueOf(SharePreferenceUtil.getUser("city","String")), String.valueOf(page));
             }
         });
         smlLocation.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(RefreshLayout refreshLayout) {
                 page++;
-                mPresenter.queryAroundUserByLocation("嘉兴", String.valueOf(page));
+                mPresenter.queryAroundUserByLocation(String.valueOf(SharePreferenceUtil.getUser("city","String")), String.valueOf(page));
             }
         });
     }
@@ -92,10 +95,15 @@ public class LocationFragment extends BaseFragment<HomePageFragmentPresenter> im
             Log.i(TAG, "queryAroundUserByLocation: " + userGsonList.size());
             isFirst = false;
         } else {
-            userGsonLists.addAll(userGsonLists.size() - 1, userGsonList);
+            userGsonLists.addAll(userGsonLists.size(), userGsonList);
             locationAdapter.replaceData(userGsonLists);
             smlLocation.finishLoadMore();
         }
+
+    }
+
+    @Override
+    public void queryHotUserByLocation(List<UserGson> userGsonList) {
 
     }
 
@@ -107,12 +115,12 @@ public class LocationFragment extends BaseFragment<HomePageFragmentPresenter> im
 
     @Override
     public void showDialog() {
-        createDialog();
+        mshowDialog();
     }
 
     @Override
     public void hideDialog() {
-        dialogCancel();
+        mhideDialog();
         smlLocation.finishLoadMore();
         smlLocation.finishRefresh();
     }

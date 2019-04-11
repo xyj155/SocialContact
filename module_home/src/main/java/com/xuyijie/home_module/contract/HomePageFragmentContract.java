@@ -11,13 +11,16 @@ import rx.Observable;
 public interface HomePageFragmentContract {
     interface Model {
         Observable<BaseGson<UserGson>> queryAroundUserByLocation(String city,String page);
+        Observable<BaseGson<UserGson>> queryHotUserByLocation(String page);
     }
 
     interface View extends BaseView {
         void queryAroundUserByLocation(List<UserGson> userGsonList);
+        void  queryHotUserByLocation(List<UserGson> userGsonList);
     }
 
     interface Presenter {
         void queryAroundUserByLocation(String city,String page);
+        void  queryHotUserByLocation(String page);
     }
 }
