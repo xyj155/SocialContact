@@ -60,8 +60,13 @@ public class PursePostFragment extends BaseFragment<UserPostPresenter> implement
     }
 
     @Override
+    public void submitUserPostByUid(boolean postGsonList) {
+
+    }
+
+    @Override
     public void showError(String msg) {
-        ToastUtils.show(msg);
+
     }
 
     @Override

@@ -10,6 +10,8 @@ import com.example.module_library.logic.presenter.EmptyPresenter;
 import com.example.module_library.weight.flingswipe.SwipeFlingAdapterView;
 import com.xuyijie.location_module.R;
 import com.xuyijie.location_module.R2;
+import com.xuyijie.location_module.adapter.CardAdapter;
+import com.xuyijie.location_module.adapter.CardMode;
 
 import java.util.ArrayList;
 import java.util.List;

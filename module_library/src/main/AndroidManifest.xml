@@ -3,5 +3,6 @@
     <application>
         <activity android:name="com.zzti.fengyongge.imagepicker.PhotoPreviewActivity" />
         <activity android:name="com.zzti.fengyongge.imagepicker.PhotoSelectorActivity" />
+        <activity android:name=".baseactivity.MPhotoPreviewActivity" />
     </application>
 </manifest>

@@ -3,7 +3,8 @@
     package="com.xuyijie.module_login">
 
     <application>
-        <activity android:name=".view.UserLoginByPassWordActivity"></activity>
+        <activity android:name=".view.UserRegisterActivity"></activity>
+        <activity android:name=".view.UserLoginByPassWordActivity" />
         <activity android:name=".view.UserLoginActivity" />
     </application>
 

@@ -230,5 +230,13 @@
                 android:layout_height="match_parent"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
     </android.support.design.widget.CoordinatorLayout>
-
+<android.support.design.widget.FloatingActionButton
+    android:layout_width="wrap_content"
+    android:src="@mipmap/ic_chat_green"
+    android:layout_height="wrap_content"
+    app:fabSize="normal"
+    android:id="@+id/fb_submit"
+    android:layout_alignParentBottom="true"
+    android:layout_margin="@dimen/dp_40"
+    android:layout_alignParentRight="true"/>
 </RelativeLayout>

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="#fff"
     android:paddingTop="@dimen/dp_18"
     tools:context=".view.UserPostSubmitActivity">
 
@@ -24,6 +25,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/tv_submit"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/dp_10"
@@ -38,9 +40,9 @@
 
 
     <RelativeLayout
-        android:layout_below="@+id/rl_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_title">
 
         <EditText
             android:id="@+id/et_content"
@@ -53,12 +55,17 @@
             android:textColor="#000"
             android:textSize="15sp" />
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/ry_picture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_content" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_60"
             android:layout_alignParentBottom="true"
-            android:background="#fff"
-            android:padding="@dimen/dp_17">
+            android:background="#fff">
 
             <ImageView
                 android:id="@+id/iv_camera"

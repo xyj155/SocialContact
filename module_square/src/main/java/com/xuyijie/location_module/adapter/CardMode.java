@@ -1,4 +1,4 @@
-package com.xuyijie.location_module.view;
+package com.xuyijie.location_module.adapter;
 
 import java.util.List;
 

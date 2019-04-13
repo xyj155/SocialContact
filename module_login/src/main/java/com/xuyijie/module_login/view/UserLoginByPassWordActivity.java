@@ -93,6 +93,7 @@ public class UserLoginByPassWordActivity extends BaseActivity<UserContract.View,
         map.put("tel", userGson.getMobileNum());
         map.put("avatar", userGson.getAvatar());
         map.put("age", userGson.getAge());
+        map.put("uid", String.valueOf(userGson.getId()));
         map.put("city", userGson.getCity());
         map.put("signature", userGson.getSignature());
         map.put("sex", userGson.getSex());

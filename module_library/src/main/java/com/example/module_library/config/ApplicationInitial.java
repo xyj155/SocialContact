@@ -4,6 +4,8 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.module_library.MyApp;
 
 import com.example.module_library.weight.toast.ToastUtils;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.tencent.tauth.Tencent;
 
 import io.rong.imkit.RongIM;
@@ -28,6 +30,10 @@ public class ApplicationInitial {
 
     public ApplicationInitial initTencentQQ() {
         Tencent instance = Tencent.createInstance("1108195133", MyApp.getInstance());
+        return this;
+    }
+    public ApplicationInitial initImageLoader() {
+        ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(MyApp.getInstance()));
         return this;
     }
 

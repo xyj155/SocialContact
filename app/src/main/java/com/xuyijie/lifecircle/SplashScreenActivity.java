@@ -64,7 +64,7 @@ public class SplashScreenActivity extends BaseActivity<EmptyContract.View, Empty
             public void run() {
                 Log.i(TAG, "initView: "+SharePreferenceUtil.getUser("login", "boolean"));
                 if ((boolean) SharePreferenceUtil.getUser("login", "boolean")) {
-                    startActivity(new Intent(SplashScreenActivity.this, UserPostSubmitActivity.class));
+                    startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
                     finish();
                 } else {
                     ivStart.setVisibility(View.VISIBLE);
@@ -93,7 +93,7 @@ public class SplashScreenActivity extends BaseActivity<EmptyContract.View, Empty
             }
         }
         if (mPermissionList.isEmpty()) {//未授予的权限为空，表示都授予了
-            Toast.makeText(SplashScreenActivity.this, "已经授权", Toast.LENGTH_LONG).show();
+
         } else {//请求权限方法
             String[] permissions = mPermissionList.toArray(new String[mPermissionList.size()]);//将List转为数组
             ActivityCompat.requestPermissions(SplashScreenActivity.this, permissions, MY_PERMISSIONS_REQUEST_CALL_CAMERA);
@@ -108,7 +108,6 @@ public class SplashScreenActivity extends BaseActivity<EmptyContract.View, Empty
                     //判断是否勾选禁止后不再询问
                     boolean showRequestPermission = ActivityCompat.shouldShowRequestPermissionRationale(SplashScreenActivity.this, permissions[i]);
                     if (showRequestPermission) {
-//                        showToast("权限未申请");
                         ToastUtils.show("权限未申请");
                     } else {
 

@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.text.TextPaint;
@@ -67,9 +68,11 @@ public class SquareFragment extends BaseFragment<EmptyPresenter> implements View
     RelativeLayout rlQuiz;
     @BindView(R2.id.rl_voice)
     RelativeLayout rlVoice;
+    @BindView(R2.id.fb_submit)
+    FloatingActionButton fbSubmit;
     Unbinder unbinder1;
     private List<Fragment> fragmentList = new ArrayList<>();
-    private String[] title = {"推荐", "附件动态", "关注"};
+    private String[] title = {"推荐", "附近动态", "关注"};
 
     private CoordinatorLayout cdSquare;
     private AppBarLayout alSquare;
@@ -145,27 +148,29 @@ public class SquareFragment extends BaseFragment<EmptyPresenter> implements View
         rlCircle.setOnClickListener(this);
         rlQuiz.setOnClickListener(this);
         rlVoice.setOnClickListener(this);
+        fbSubmit.setOnClickListener(this);
 //        rlCouple.setOnTouchListener(this);
 //        rlCircle.setOnTouchListener(this);
 //        rlQuiz.setOnTouchListener(this);
 //        rlVoice.setOnTouchListener(this);
     }
+
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
 
             case MotionEvent.ACTION_DOWN:
                 int id1 = view.getId();
-                if ( id1==  R.id.rl_couple) {
+                if (id1 == R.id.rl_couple) {
                     rlCouple.setScaleX((float) 0.85);
                     rlCouple.setScaleY((float) 0.85);
-                }else if (id1==R.id.rl_circle){
+                } else if (id1 == R.id.rl_circle) {
                     rlCircle.setScaleX((float) 0.85);
                     rlCircle.setScaleY((float) 0.85);
-                }else if (id1==R.id.rl_quiz){
+                } else if (id1 == R.id.rl_quiz) {
                     rlQuiz.setScaleX((float) 0.85);
                     rlQuiz.setScaleY((float) 0.85);
-                }else if (id1==R.id.rl_voice){
+                } else if (id1 == R.id.rl_voice) {
                     rlVoice.setScaleX((float) 0.85);
                     rlVoice.setScaleY((float) 0.85);
                 }
@@ -175,13 +180,13 @@ public class SquareFragment extends BaseFragment<EmptyPresenter> implements View
                 if (id == R.id.rl_couple) {
                     rlCouple.setScaleX(1);
                     rlCouple.setScaleY(1);
-                }else if (id==R.id.rl_circle){
+                } else if (id == R.id.rl_circle) {
                     rlCircle.setScaleX(1);
                     rlCircle.setScaleY(1);
-                }else if (id==R.id.rl_quiz){
+                } else if (id == R.id.rl_quiz) {
                     rlQuiz.setScaleX(1);
                     rlQuiz.setScaleY(1);
-                }else if (id==R.id.rl_voice){
+                } else if (id == R.id.rl_voice) {
                     rlVoice.setScaleX(1);
                     rlVoice.setScaleY(1);
                 }
@@ -189,7 +194,8 @@ public class SquareFragment extends BaseFragment<EmptyPresenter> implements View
         }
         return false;
     }
-    private void viewUp(final View v, final Class c){
+
+    private void viewUp(final View v, final Class c) {
         v.setScaleX((float) 0.85);
         v.setScaleY((float) 0.85);
         new Handler().postDelayed(new Runnable() {
@@ -197,12 +203,10 @@ public class SquareFragment extends BaseFragment<EmptyPresenter> implements View
             public void run() {
                 v.setScaleX(1);
                 v.setScaleY(1);
-                startActivity(new Intent(getContext(),c));
+                startActivity(new Intent(getContext(), c));
             }
-        },100);
+        }, 100);
     }
-
-
 
 
     private HomePagerAdapter homePagerAdapter;
@@ -225,22 +229,16 @@ public class SquareFragment extends BaseFragment<EmptyPresenter> implements View
     @Override
     public void onClick(View v) {
         int id1 = v.getId();
-        if ( id1==  R.id.rl_couple) {
-//            rlCouple.setScaleX((float) 0.85);
-//            rlCouple.setScaleY((float) 0.85);
-            viewUp(rlCouple,UserMatchActivity.class);
-        }else if (id1==R.id.rl_circle){
-//            rlCircle.setScaleX((float) 0.85);
-            viewUp(rlCircle,UserMatchActivity.class);
-//            rlCircle.setScaleY((float) 0.85);
-        }else if (id1==R.id.rl_quiz){
-//            rlQuiz.setScaleX((float) 0.85);
-            viewUp(rlQuiz,UserMatchActivity.class);
-//            rlQuiz.setScaleY((float) 0.85);
-        }else if (id1==R.id.rl_voice){
-            viewUp(rlVoice,UserMatchActivity.class);
-//            rlVoice.setScaleX((float) 0.85);
-//            rlVoice.setScaleY((float) 0.85);
+        if (id1 == R.id.rl_couple) {
+            viewUp(rlCouple, UserMatchActivity.class);
+        } else if (id1 == R.id.rl_circle) {
+            viewUp(rlCircle, UserMatchActivity.class);
+        } else if (id1 == R.id.rl_quiz) {
+            viewUp(rlQuiz, UserMatchActivity.class);
+        } else if (id1 == R.id.rl_voice) {
+            viewUp(rlVoice, UserMatchActivity.class);
+        } else if (id1 == R.id.fb_submit) {
+            startActivity(new Intent(getContext(), UserPostSubmitActivity.class));
         }
     }
 

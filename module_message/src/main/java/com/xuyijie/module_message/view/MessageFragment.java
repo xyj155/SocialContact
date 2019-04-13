@@ -50,7 +50,7 @@ public class MessageFragment extends BaseFragment<EmptyPresenter> {
                 public void onSuccess(String userid) {
                     Log.d("LoginActivity", "--onSuccess" + userid);
 //                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-ToastUtils.show("成功");
+
                 }
 
                 /**

@@ -27,6 +27,25 @@ public class PostGson {
 
     private int userId;
     private String dateTime;
+    private String commentCount;
+    private String thumbCount;
+
+    public String getCommentCount() {
+        return commentCount;
+    }
+
+    public void setCommentCount(String commentCount) {
+        this.commentCount = commentCount;
+    }
+
+    public String getThumbCount() {
+        return thumbCount;
+    }
+
+    public void setThumbCount(String thumbCount) {
+        this.thumbCount = thumbCount;
+    }
+
     private String postTitle;
     private String topic;
     private UserGson user;
